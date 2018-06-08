@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package service;
+option go_package = "service";
+
+import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+
+service SimpleServer {
+    rpc CreateUser(CreateUserRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/users",
+            body: "*"
+        };
+    }
+    rpc GetUser(GetUserRequest) returns (User) {
+        option (google.api.http) = {
+            get: "/users/{username}"
+        };
+    }
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message GetUserRequest {
+    string username = 1;
+}
+
+
+message User {
+    string username = 1;
+    string role = 2;
+}
