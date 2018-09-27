@@ -1,12 +1,14 @@
 module github.com/felipeweb/grpc-tad
 
 require (
-	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/golang/protobuf v1.1.0
-	github.com/grpc-ecosystem/grpc-gateway v1.4.1
-	golang.org/x/net v0.0.0-20180530234432-1e491301e022
-	golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f
-	golang.org/x/text v0.3.0
-	google.golang.org/genproto v0.0.0-20180608181217-32ee49c4dd80
-	google.golang.org/grpc v1.12.2
+	cloud.google.com/go v0.28.0 // indirect
+	github.com/golang/protobuf v1.2.0
+	github.com/grpc-ecosystem/grpc-gateway v1.5.0
+	golang.org/x/net v0.0.0-20180926154720-4dfa2610cdf3
+	golang.org/x/sys v0.0.0-20180926160741-c2ed4eda69e7 // indirect
+	golang.org/x/tools v0.0.0-20180926130641-c756801b0141 // indirect
+	google.golang.org/appengine v1.2.0 // indirect
+	google.golang.org/genproto v0.0.0-20180925191851-0e822944c569
+	google.golang.org/grpc v1.15.0
+	honnef.co/go/tools v0.0.0-20180920025451-e3ad64cb4ed3 // indirect
 )

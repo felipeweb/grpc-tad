@@ -22,7 +22,7 @@ func main() {
 	}
 	defer conn.Close() // nolint
 
-	client := pb.NewSimpleServerClient(conn)
+	client := pb.NewUserServiceClient(conn)
 
 	md := metadata.Pairs("authorization", "tad")
 	ctx := metadata.NewOutgoingContext(context.Background(), md)

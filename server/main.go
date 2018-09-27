@@ -41,7 +41,7 @@ func runGRPC(lis net.Listener) {
 		grpc.Creds(creds),
 		grpc.UnaryInterceptor(authInterceptor),
 	)
-	pb.RegisterSimpleServerServer(server, newServer())
+	pb.RegisterUserServiceServer(server, newServer())
 
 	log.Printf("gRPC Listening on %s\n", lis.Addr().String())
 	server.Serve(lis) // nolint
@@ -57,7 +57,7 @@ func runHTTP(clientAddr string) {
 	}
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(creds)}
 	mux := runtime.NewServeMux()
-	if err := pb.RegisterSimpleServerHandlerFromEndpoint(context.Background(), mux, clientAddr, opts); err != nil {
+	if err := pb.RegisterUserServiceHandlerFromEndpoint(context.Background(), mux, clientAddr, opts); err != nil {
 		log.Fatalf("failed to start HTTP server: %v", err)
 	}
 	log.Printf("HTTP Listening on %s\n", addr)

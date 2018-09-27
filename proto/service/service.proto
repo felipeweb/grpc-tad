@@ -6,7 +6,7 @@ option go_package = "service";
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 
-service SimpleServer {
+service UserService {
     rpc CreateUser(CreateUserRequest) returns (google.protobuf.Empty) {
         option (google.api.http) = {
             post: "/users",
