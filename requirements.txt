@@ -1,0 +1,14 @@
+click==6.2
+enum34==1.1.6
+excel2json==1.0.1
+futures==3.2.0
+googleapis-common-protos==1.5.3
+grpcio==1.15.0
+grpcio-tools==1.15.0
+pg-table-markdown==1.0.4
+protobuf==3.6.0
+psycopg2==2.7.1
+psycopg2-binary==2.7.4
+six==1.11.0
+virtualenv==16.0.0
+xlrd==1.1.0

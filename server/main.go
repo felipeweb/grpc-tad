@@ -32,13 +32,13 @@ func main() {
 }
 
 func runGRPC(lis net.Listener) {
-	creds, err := credentials.NewServerTLSFromFile("server/server-cert.pem", "server/server-key.pem")
-	if err != nil {
-		log.Fatalf("Failed to setup tls: %v", err)
-	}
+	// creds, err := credentials.NewServerTLSFromFile("server/server-cert.pem", "server/server-key.pem")
+	// if err != nil {
+	// 	log.Fatalf("Failed to setup tls: %v", err)
+	// }
 
 	server := grpc.NewServer(
-		grpc.Creds(creds),
+		// grpc.Creds(creds),
 		grpc.UnaryInterceptor(authInterceptor),
 	)
 	pb.RegisterUserServiceServer(server, newServer())
@@ -116,7 +116,7 @@ func authInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServe
 	if len(meta["authorization"]) != 1 {
 		return nil, status.Errorf(codes.Unauthenticated, "invalid token")
 	}
-	if meta["authorization"][0] != "tad" {
+	if meta["authorization"][0] != "nuveosummit" {
 		return nil, status.Errorf(codes.Unauthenticated, "invalid token")
 	}
 
