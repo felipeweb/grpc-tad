@@ -20,7 +20,7 @@ def main():
     ),
     metadata = metadata)
     if response:
-        print('User getted', response)
+        print('User', response)
     
 
 if __name__ == '__main__':
