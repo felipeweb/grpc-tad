@@ -32,13 +32,13 @@ func main() {
 }
 
 func runGRPC(lis net.Listener) {
-	// creds, err := credentials.NewServerTLSFromFile("server/server-cert.pem", "server/server-key.pem")
-	// if err != nil {
-	// 	log.Fatalf("Failed to setup tls: %v", err)
-	// }
+	creds, err := credentials.NewServerTLSFromFile("server/server-cert.pem", "server/server-key.pem")
+	if err != nil {
+		log.Fatalf("Failed to setup tls: %v", err)
+	}
 
 	server := grpc.NewServer(
-		// grpc.Creds(creds),
+		grpc.Creds(creds),
 		grpc.UnaryInterceptor(authInterceptor),
 	)
 	pb.RegisterUserServiceServer(server, newServer())
